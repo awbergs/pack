@@ -7,27 +7,12 @@
     this.throttle = 25;
 
     var _this = this;
-
-    function makeSticky(){
-      if(!_this.stuck){
-        document.body.setAttribute('stickynav', true); 
-        _this.stuck = true;
-      }
-    }
-
-    function makeUnSticky(){
-      if(_this.stuck){
-        document.body.removeAttribute('stickynav'); 
-        _this.stuck = false;
-      }
-    }
-
     function windowScrollHandler(){
       if(document.body.scrollTop >= _this.height){
-        makeSticky();
+        _this.stick(true);
       }
       else{
-        makeUnSticky();
+        _this.stick(false);
       }
 
       clearTimeout(_this.throttleTimeout);
@@ -39,6 +24,19 @@
         _this.throttleTimeout = setTimeout(windowScrollHandler, _this.throttle);
       }
     });
+  }
+
+  stickynav.prototype = {
+    stick: function(stick){
+      if(stick && !this.stuck){
+        document.body.setAttribute('stickynav', true); 
+        this.stuck = true;
+      }
+      else if(!stick && this.stuck){
+        document.body.removeAttribute('stickynav'); 
+        this.stuck = false;
+      }
+    }
   }
 
   window.StickyNav = stickynav;
