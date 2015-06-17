@@ -1,11 +1,4 @@
-$white: #ffffff;
-$main-color: #344955;
-$green-color: #63B539;
-$gray-color: #cccccc;
-$light-gray-color: #eeeeee;
-$nav-hover-color: $green-color;
-$border-color: $light-gray-color;
-$section-heading-color: #A29D98;
+@import "colors";
 
 html{
   font-family: sans-serif;
