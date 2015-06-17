@@ -1,40 +1,46 @@
-(function(window){
+(function(window, document){
 
-  var headerHeight = document.getElementById('header').offsetHeight;
-  var isSticky = false;
+  function stickynav(header){
+    this.stuck = false;
+    this.height = header.offsetHeight;
+    this.throttleTimeout = null;
+    this.throttle = 25;
 
-  function makeSticky(){
-    if(!isSticky){
-      document.body.setAttribute('stickynav', true); 
-      isSticky = true;
+    var _this = this;
+
+    function makeSticky(){
+      if(!_this.stuck){
+        document.body.setAttribute('stickynav', true); 
+        _this.stuck = true;
+      }
     }
+
+    function makeUnSticky(){
+      if(_this.stuck){
+        document.body.removeAttribute('stickynav'); 
+        _this.stuck = false;
+      }
+    }
+
+    function windowScrollHandler(){
+      if(document.body.scrollTop >= _this.height){
+        makeSticky();
+      }
+      else{
+        makeUnSticky();
+      }
+
+      clearTimeout(_this.throttleTimeout);
+      _this.throttleTimeout = null;
+    }
+
+    window.addEventListener('scroll', function(){
+      if(!_this.throttleTimeout){
+        _this.throttleTimeout = setTimeout(windowScrollHandler, _this.throttle);
+      }
+    });
   }
 
-  function makeUnSticky(){
-    if(isSticky){
-      document.body.removeAttribute('stickynav'); 
-      isSticky = false;
-    }
-  }
+  window.StickyNav = stickynav;
 
-  var handlerTimeout = null;
-
-  function windowScrollHandler(){
-    if(document.body.scrollTop >= headerHeight){
-      makeSticky();
-    }
-    else{
-      makeUnSticky();
-    }
-
-    clearTimeout(handlerTimeout);
-    handlerTimeout = null;
-  }
-
-  window.addEventListener('scroll', function(){
-    if(!handlerTimeout){
-      handlerTimeout = setTimeout(windowScrollHandler, 25);
-    }
-  });
-
-})(window);
+})(window, document);
