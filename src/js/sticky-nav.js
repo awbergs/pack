@@ -8,13 +8,7 @@
 
     var _this = this;
     function windowScrollHandler(){
-      if(document.body.scrollTop >= _this.height){
-        _this.stick(true);
-      }
-      else{
-        _this.stick(false);
-      }
-
+      _this.stick(document.body.scrollTop >= _this.height)
       clearTimeout(_this.throttleTimeout);
       _this.throttleTimeout = null;
     }
