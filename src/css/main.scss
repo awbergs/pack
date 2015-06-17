@@ -1,6 +1,7 @@
 @import "colors";
 @import "header";
 @import "nav";
+@import "buttons";
 
 html{
   font-family: sans-serif;
@@ -194,64 +195,6 @@ main{
 
 .right{
   float: right;
-}
-
-.btn{
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 16px;
-  border: 2px solid $white;
-  color: $white;
-  position: relative;
-  text-decoration: none;
-  line-height: 16px;
-  overflow: hidden;
-
-  &.btn-white{
-    background-color: $white;
-    color: $main-color;
-    padding: 8px 10px;
-    border: none;
-  }
-  &.btn-green{
-    background: linear-gradient(#90D36D, $green-color);
-  }
-  &.btn-gray{
-    background: linear-gradient(#dedede, $gray-color);
-  }
-  &.btn-color-green{
-    color: $green-color;
-  }
-
-  &.btn-large{
-    padding: 10px;
-    border-radius: 20px;
-
-    &.btn-white{
-      padding: 12px;
-    }
-  }
-
-  .btn-segment-left{
-    float: left;
-    display: block;
-    margin: -10px 10px -10px -10px;
-    padding: 10px 0 10px 10px;
-  }
-
-  i{
-    float: left;
-    margin-right: 10px;
-    font-size: 16px; 
-  }
-
-  &.btn-circle{
-    padding: 6px;
-
-    i{
-      margin-right: 0;
-    }
-  }
 }
 
 footer{
