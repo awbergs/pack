@@ -1,0 +1,38 @@
+nav{
+  background-color: $white;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+
+  ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+
+    li{
+      display: inline-block;
+      width: 100px;
+
+      a{
+        display: block;
+
+        &,&:hover,&:focus,&:active{
+          text-decoration: none;
+          color: $main-color;
+          font-size: 13px;
+        }
+
+        &:hover{
+          i.fa{
+            color: $nav-hover-color; 
+          }
+        }
+
+        i.fa{
+          display: block;
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

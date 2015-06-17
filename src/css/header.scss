@@ -1,0 +1,73 @@
+#header{
+  position: relative;
+  height: 400px;
+
+  .logo-icon{
+    background-image: url('../img/logo.svg');
+    height: 60px;
+    width: 60px;
+    display: block;
+    margin: 10px auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide{
+    background-color: rgba(99, 181, 57, .8);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    transition: all .2s ease-out;
+    color: $white;
+
+    &.open{
+      left: 0;
+      transition: all .2s ease-out;
+    }
+
+    .btn{
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .slide-content{
+      padding: 40px;
+      margin-top: 50px;
+      p{
+        color: $gray-color;
+        line-height: 20px;
+      }
+      h1{
+        color: $white;
+      }
+    }
+  }
+}
+
+#phone-button .btn-segment-left{
+  background-color: $green-color;
+  color: $white;
+}
+
+#header-actions{
+  padding: 30px;
+  .header-action{
+    margin: 10px;
+    float: left;
+  }
+}
+
+#header-image{
+  background-image: url('../img/header.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
