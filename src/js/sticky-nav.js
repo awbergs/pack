@@ -20,16 +20,14 @@
     });
   }
 
-  stickynav.prototype = {
-    stick: function(stick){
-      if(stick && !this.stuck){
-        document.body.setAttribute('stickynav', true); 
-        this.stuck = true;
-      }
-      else if(!stick && this.stuck){
-        document.body.removeAttribute('stickynav'); 
-        this.stuck = false;
-      }
+  stickynav.prototype.stick = function(stick){
+    if(stick && !this.stuck){
+      document.body.setAttribute('stickynav', true); 
+      this.stuck = true;
+    }
+    else if(!stick && this.stuck){
+      document.body.removeAttribute('stickynav'); 
+      this.stuck = false;
     }
   }
 
